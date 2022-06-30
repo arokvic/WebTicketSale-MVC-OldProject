@@ -1,0 +1,208 @@
+﻿@using WebTicket.Models;
+@model IEnumerable<Manifestacija>
+
+
+
+
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+
+        <!-- Brand/logo -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#example-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Ticketer</a>
+        </div>
+
+        <!-- Collapsible Navbar -->
+        <div class="collapse navbar-collapse" id="example-1">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Pocetna<span class="sr-only">(current)</span></a></li>
+                @{
+                    if (Session["admin"] == null && Session["kupac"] == null && Session["prodavac"] == null)
+                    {
+                        <li><a href="~/Home/Login">Login</a></li>
+                        <li><a href="~/Home/Register">Register</a></li>
+                    }
+                    else if (Session["admin"] != null)
+                    {
+                        <li><a href="~/Admin/DodajProdavca">Dodaj prodavca</a></li>
+                        <li>@Html.ActionLink("Izmeni profil", "IzmeniProfil", "Pocetna") </li>
+                        <li>@Html.ActionLink("Svi korisnici", "PrikaziKorisnike", "Admin") </li>
+                        <li>@Html.ActionLink("Sve karte", "PrikaziKarte", "Admin") </li>
+
+                        <li> @Html.ActionLink("Logout", "Logout", "Home")</li>
+
+
+                    }
+                    else if (Session["kupac"] != null)
+                    {
+                        <li>@Html.ActionLink("Izmeni profil", "IzmeniProfil", "Pocetna") </li>
+                        <li>@Html.ActionLink("Logout", "Logout", "Home") </li>
+                        <li>@Html.ActionLink("Moje Karte", "PrikaziKarte", "Kupac") </li>
+
+                    }
+                    else if (Session["prodavac"] != null)
+                    {
+                        <li>@Html.ActionLink("Izmeni profil", "IzmeniProfil", "Pocetna") </li>
+                        <li><a href="~/Prodavac/DodajManifestaciju">Dodaj Manifestaciju</a></li>
+
+                        <li>@Html.ActionLink("Sve rezervisane karte", "PrikaziKarte", "Prodavac") </li>
+                        <li>@Html.ActionLink("Logout", "Logout", "Home") </li>
+                    }
+                }
+            </ul>
+        </div>
+
+    </div>
+</nav>
+@if (ViewBag.Error != null)
+{
+    <div class="alert alert-danger" role="alert">
+        @ViewBag.Error
+    </div>
+}
+@if (ViewBag.Succ != null)
+{
+    <div class="alert alert-success" role="alert">
+        @ViewBag.Succ
+    </div>
+}
+<br />
+
+
+<div class="form-group" id="inner" style=vertical-align: middle;>
+    <form action="/Pocetna/Search">
+        <input list="search" name="src" required placeholder="Pretrazi po" />
+        <datalist id="search" class="col-sm-6 custom-select custom-select-sm">
+            <option value="Nazivu manifestacije"></option>
+            <option value="Mesto odrzavanja(Grad/Drzava)"></option>
+        </datalist>
+        <input type="text" name="srr" class="form-control-plaintext" />
+        <input type="submit" value="Pretrazi" />
+    </form>
+    <br />
+
+
+    <form action="/Pocetna/SearchDatum">
+        <label>Pretrazi po datumu</label>
+        <input type="date" name="srr" class="form-control-plaintext" placeholder="od" />
+        <input type="date" name="src" class="form-control-plaintext" placeholder="do" />
+        <input type="submit" value="Pretrazi" />
+    </form>
+    <br />
+
+    <form action="/Pocetna/SearchCena">
+        <label>Pretrazi po ceni</label>
+        <input type="number" name="srr" class="form-control-plaintext" placeholder="od" />
+        <input type="number" name="src" class="form-control-plaintext" placeholder="do" />
+        <input type="submit" value="Pretrazi" />
+    </form>
+    <br />
+    <div>
+        <form action="/Pocetna/Sort">
+            <input list="s" name="src" required placeholder="Sortiraj po" " />
+            <datalist id="s" class="col-sm-6 custom-select custom-select-sm">
+                <option value="Nazivu manifestacije"></option>
+                <option value="Mesto odrzavanja"></option>
+                <option value="Datumu"></option>
+                <option value="Ceni"></option>
+            </datalist>
+            <input list="ss" name="srr" required placeholder="Redosled" />
+            <datalist id="ss" class="col-sm-6 custom-select custom-select-sm">
+                <option value="Opadajuci"></option>
+                <option value="Rastuci"></option>
+            </datalist>
+            <input type="submit" value="Pretrazi" />
+        </form>
+    </div>
+    <br />
+
+    <form action="/Pocetna/Filtriraj">
+        <input list="filt" name="flt" required placeholder="Filtriraj po" />
+        <datalist id="filt" class="col-sm-6 custom-select custom-select-sm">
+            <option value="prikazi nerasprodate manifestacije"></option>
+            <option value="prikazi utakmice"></option>
+            <option value="prikazi festivale"></option>
+            <option value="prikazi predstave"></option>
+            <option value="prikazi zurke"></option>
+            <option value="prikazi koncerte"></option>
+            <option value="prikazi izlozbe"></option>
+        </datalist>
+        <input type="submit" value="Filtriraj" />
+    </form>
+    <br />
+
+
+</div>
+
+
+
+<div class="container">
+    @foreach (var m in Model)
+    {
+
+        if ((m.Aktivno == true || Session["admin"] != null) && m.IsDeleted == false)
+        {
+
+            <div class="container col-sm-6">
+                <div >
+                    <div class="thumbnail">
+                        <img style="height:600px;width:400px" src="~/Images/@m.Poster" alt="...">
+                        <div >
+                            <h2>@Html.ActionLink(m.Naziv, "PrikaziManifestaciju", "Pocetna", new { Name = m.Naziv }, null) </h2>
+                            <p>Tip : @m.Tip</p>
+                            <p>Datum :  @m.DatumIVreme</p>
+                            <p>Grad : @m.Mesto.Mesto</p>
+                            <p>Adresa : @m.Mesto.Ulica @m.Mesto.Broj</p>
+                            <p>Cena regularne karte: @m.CenaRegular</p>
+
+                            @if (Session["prodavac"] != null)
+                            {
+                                <form action="/Prodavac/AzurirajManifestaciju">
+                                    <input type="hidden" name="Naziv" value="@m.Naziv" />
+                                    <input type="submit" class="btn btn-primary" role="button" value="Azuriraj">
+                                </form>
+                            }
+                            @if (m.Aktivno == false && Session["admin"] != null)
+                            {
+                                <form action="/Admin/AktivirajManifestaciju">
+                                    <input type="hidden" name="Naziv" value="@m.Naziv" />
+                                    <input type="submit" class="btn btn-primary" role="button" value="Aktiviraj manifestaciju">
+                                </form>
+                            }
+                            @if (Session["admin"] != null)
+                            {
+                                <td>
+                                    <form action="/Admin/ObrisiManifestaciju" method="post">
+                                        <input type="hidden" name="Naziv" value="@m.Naziv" />
+                                        <input type="submit" class="btn btn-primary" role="button" value="Obrisi">
+                                    </form>
+                                </td>
+                            }
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+        }
+
+    }
+</div>
+
+
+
+
+
+
+
+

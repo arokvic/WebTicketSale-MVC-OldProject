@@ -1,0 +1,84 @@
+﻿<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+
+        <!-- Brand/logo -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#example-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Ticketer</a>
+        </div>
+
+        <!-- Collapsible Navbar -->
+        <div class="collapse navbar-collapse" id="example-1">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Dodaj Prodavca<span class="sr-only">(current)</span></a></li>
+                <li><a href="~/Pocetna/Index">Pocetna</a></li>
+                <li>@Html.ActionLink("Svi korisnici", "PrikaziKorisnike", "Admin") </li>
+                <li>@Html.ActionLink("Izmeni profil", "IzmeniProfil", "Pocetna") </li>
+                <li>@Html.ActionLink("Sve karte", "PrikaziKarte", "Admin") </li>
+                <li>@Html.ActionLink("Logout", "Logout", "Home") </li>
+            </ul>
+        </div>
+
+    </div>
+</nav>
+@if (ViewBag.Error != null)
+{
+    <div class="alert alert-danger" role="alert">
+        @ViewBag.Error
+    </div>
+}
+@if (ViewBag.Succ != null)
+{
+    <div class="alert alert-success" role="alert">
+        @ViewBag.Succ
+    </div>
+}
+
+
+
+<div class="container">
+    <form class="form-horizontal" role="form" action="~/Admin/DodajProdavca" method="post">
+        <h2>Dodaj kupca</h2>
+        <div class="form-group">
+            <label for="username" class="col-sm-3 control-label">Username</label>
+            <div class="col-sm-9">
+                <input type="text" id="username" placeholder="Username" name="Username" class="form-control" autofocus>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="password" class="col-sm-3 control-label">Password</label>
+            <div class="col-sm-9">
+                <input type="password" id="password" placeholder="Password" name="Lozinka" class="form-control">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="name" class="col-sm-3 control-label">Name</label>
+            <div class="col-sm-9">
+                <input type="text" id="name" placeholder="Name" name="Ime" class="form-control">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="last name" class="col-sm-3 control-label">Last name</label>
+            <div class="col-sm-9">
+                <input type="text" id="last name" placeholder="Last name" name="Prezime" class="form-control">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="birthDate" class="col-sm-3 control-label">Date of Birth</label>
+            <div class="col-sm-9">
+                <input type="date" id="birthDate" name="Datum" class="form-control">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-9 col-sm-offset-3">
+                <button type="submit" class="btn btn-primary btn-block">Dodaj Prodavca</button>
+            </div>
+        </div>
+    </form> <!-- /form -->
+</div> <!-- ./container -->

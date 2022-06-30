@@ -1,0 +1,65 @@
+﻿<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+
+        <!-- Brand/logo -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#example-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Ticketer</a>
+        </div>
+
+        <!-- Collapsible Navbar -->
+        <div class="collapse navbar-collapse" id="example-1">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Login<span class="sr-only">(current)</span></a></li>
+                <li><a href="~/Pocetna/Index">Pocetna</a></li>
+                <li><a href="~/Home/Register">Register</a></li>
+            </ul>
+        </div>
+
+    </div>
+</nav>
+@if (ViewBag.Error != null)
+{
+    <div class="alert alert-danger" role="alert">
+        @ViewBag.Error
+    </div>
+}
+
+
+
+
+
+
+
+
+<div class="container">
+    
+    <form class="form-horizontal" role="form" action="Login" method="post">
+       
+        <div class="form-group">
+            <h2>Login</h2> <br />
+            <label for="username" class="col-sm-3 control-label">Username</label>
+            <div class="col-sm-9">
+                <input type="text" id="username" placeholder="Username" required name="Username" class="form-control" autofocus>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="password" class="col-sm-3 control-label">Password</label>
+            <div class="col-sm-9">
+                <input type="password" id="password" placeholder="Password" required name="Lozinka" class="form-control">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-9 col-sm-offset-3">
+                <button type="submit" class="btn btn-primary ">Register</button>
+            </div>
+        </div>
+
+    </form> <!-- /form -->
+</div> <!-- ./container -->

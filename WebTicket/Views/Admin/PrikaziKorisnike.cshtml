@@ -1,0 +1,143 @@
+﻿@using WebTicket.Models;
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+
+        <!-- Brand/logo -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#example-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Ticketer</a>
+        </div>
+
+        <!-- Collapsible Navbar -->
+        <div class="collapse navbar-collapse" id="example-1">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Svi korisnici<span class="sr-only">(current)</span></a></li>
+                <li><a href="~/Admin/DodajProdavca">Dodaj prodavca</a></li>
+                <li><a href="~/Pocetna/Index">Pocetna</a></li>
+                <li>@Html.ActionLink("Izmeni profil", "IzmeniProfil", "Pocetna") </li>
+                <li>@Html.ActionLink("Sve karte", "PrikaziKarte", "Admin") </li>
+                <li>@Html.ActionLink("Logout", "Logout", "Home") </li>
+            </ul>
+        </div>
+
+    </div>
+</nav>
+@if (ViewBag.Error != null)
+{
+    <div class="alert alert-danger" role="alert">
+        @ViewBag.Error
+    </div>
+}
+<br />
+
+<div class="form-group" id="inner" style=vertical-align: middle;>
+    <form action="/Admin/Search">
+        <input list="search" name="src" required placeholder="Pretrazi po" />
+        <datalist id="search" class="col-sm-6 custom-select custom-select-sm">
+            <option value="Imenu"></option>
+            <option value="Prezimenu"></option>
+            <option value="Korisnickom imenu"></option>
+        </datalist>
+        <input type="text" name="srr" class="form-control-plaintext" />
+        <input type="submit" value="Pretrazi" />
+    </form>
+    <br />
+
+    <form action="/Admin/Sort">
+        <input list="s" name="src" required placeholder="Sortiraj po" />
+        <datalist id="s" class="col-sm-6 custom-select custom-select-sm">
+            <option value="Imenu"></option>
+            <option value="Prezimenu"></option>
+            <option value="Korisnickom imenu"></option>
+            <option value="Broju sakupljenih bodova"></option>
+        </datalist>
+        <input list="ss" name="srr" required placeholder="Redosled" />
+        <datalist id="ss" class="col-sm-6 custom-select custom-select-sm">
+            <option value="Opadajuci"></option>
+            <option value="Rastuci"></option>
+        </datalist>
+        <input type="submit" value="Pretrazi" />
+    </form>
+</div>
+<br />
+
+<form action="/Admin/Filtriraj">
+    <input list="filt" name="flt" required placeholder="Filtriraj po" />
+    <datalist id="filt" class="col-sm-6 custom-select custom-select-sm">
+        <option value="prikazi admine"></option>
+        <option value="prikazi prodavce"></option>
+        <option value="prikazi kupce"></option>
+
+
+    </datalist>
+    <input type="submit" value="Filtriraj" />
+</form>
+<br />
+
+
+
+
+    </div>
+
+
+<div class="container">
+    <hr>
+
+    <div class="row">
+        <div class="panel panel-primary filterable">
+            <div class="panel-heading">
+                <h3 class="panel-title">Korisnici</h3>
+            </div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Korisnicko ime</th>
+                        <th>Ime</th>
+                        <th>Prezime</th>
+                        <th>Uloga</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var k in ViewBag.kup)
+                    {
+                        if (k.IsDeleted == false)
+                        {
+
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>@k.Username</td>
+                                <td>@k.Ime</td>
+                                <td>@k.Prezime</td>
+                                <td>@k.Uloga</td>
+                                @if (k.Uloga != Uloga.Administrator)
+                                {
+                                    <td>
+                                        <form action="/Admin/ObrisiKorisnika" method="post">
+                                            <input type="hidden" name="Naziv" value="@k.Username" />
+                                            <input type="submit" class="btn btn-primary" role="button" value="Obrisi">
+                                        </form>
+                                    </td>
+                                }
+                            </tr>
+                        }
+                    }
+
+
+
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

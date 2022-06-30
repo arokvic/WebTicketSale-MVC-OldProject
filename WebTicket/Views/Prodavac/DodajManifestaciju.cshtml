@@ -1,0 +1,131 @@
+﻿<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+
+        <!-- Brand/logo -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#example-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Ticketer</a>
+        </div>
+
+        <!-- Collapsible Navbar -->
+        <div class="collapse navbar-collapse" id="example-1">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Dodavanje manifestacije<span class="sr-only">(current)</span></a></li>
+                <li><a href="~/Pocetna/Index">Pocetna</a></li>
+                <li>@Html.ActionLink("Izmeni profil", "IzmeniProfil", "Pocetna") </li>
+
+                <li>@Html.ActionLink("Sve rezervisane karte", "PrikaziKarte", "Prodavac") </li>
+                <li>@Html.ActionLink("Logout", "Logout", "Home") </li>
+
+
+            </ul>
+        </div>
+
+    </div>
+</nav>
+<label>@ViewBag.error</label>
+@if (ViewBag.Error != null)
+{
+    <div class="alert alert-danger" role="alert">
+        @ViewBag.Error
+    </div>
+}
+    <div class="container">
+
+
+
+        <form class="form-horizontal" role="form" action="~/Prodavac/DodajManifestaciju" method="post">
+
+
+
+            <h2>Dodaj manifestaciju</h2>
+
+            <div class="form-group">
+                <label for="username" class="col-sm-3 control-label">Naziv manifestacije</label>
+                <div class="col-sm-9">
+                    <input type="text" id="naziv" placeholder="Naziv" name="Naziv" class="form-control" autofocus>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="tip" class="col-sm-3 control-label">Tip Manifestacije</label>
+                <input list="tip" name="Tip" placeholder="Utakmica" />
+                <datalist id="tip">
+                    <option value="Utakmica" selected></option>
+                    <option value="Festival"></option>
+                    <option value="Koncert"></option>
+                    <option value="Izlozba"></option>
+                    <option value="Zurka"></option>
+                </datalist>
+            </div>
+            <div class="form-group">
+                <label for="broj" class="col-sm-3 control-label">Broj regularnih mesta</label>
+                <div class="col-sm-9">
+                    <input type="number" id="brojMesta" placeholder="Broj mesta" name="BrojMestaRegular" required class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="broj" class="col-sm-3 control-label">Broj parter mesta</label>
+                <div class="col-sm-9">
+                    <input type="number" id="brojMesta" placeholder="Broj mesta" name="BrojMestaParter" required class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="broj" class="col-sm-3 control-label">Broj VIP mesta</label>
+                <div class="col-sm-9">
+                    <input type="number" id="brojMesta" placeholder="Broj mesta" name="BrojMestaVip" required class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="last name" class="col-sm-3 control-label">Cena karte</label>
+                <div class="col-sm-9">
+                    <input type="number" id="cena" placeholder="Cena" name="Cena" required class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="datum" class="col-sm-3 control-label">Datum odrzavanja</label>
+                <div class="col-sm-9">
+                    <input type="date" id="Datum" name="Datum" required class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="last name" class="col-sm-3 control-label">Ulica</label>
+                <div class="col-sm-9">
+                    <input type="text" id="ulica" placeholder="Ulica" required name="Ulica" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="last name" class="col-sm-3 control-label">Broj</label>
+                <div class="col-sm-9">
+                    <input type="number" id="broj" placeholder="Broj" required name="Broj" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="last name" class="col-sm-3 control-label">Grad</label>
+                <div class="col-sm-9">
+                    <input type="text" id="grad" placeholder="Grad" name="Grad" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="last name" class="col-sm-3 control-label">Postanski broj</label>
+                <div class="col-sm-9">
+                    <input type="number" id="postanski" placeholder="Postanski broj" required name="Postanski" class="form-control">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-9 col-sm-offset-3">
+                    <button type="submit" class="btn btn-primary btn-block">Dodaj Manifestaciju</button>
+                </div>
+            </div>
+        </form> <!-- /form -->
+
+
+      
+
+
+    </div> <!-- ./container -->

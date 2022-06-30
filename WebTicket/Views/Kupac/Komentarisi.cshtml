@@ -1,0 +1,81 @@
+﻿<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+
+        <!-- Brand/logo -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#example-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Ticketer</a>
+        </div>
+
+        <!-- Collapsible Navbar -->
+        <div class="collapse navbar-collapse" id="example-1">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Komentar<span class="sr-only">(current)</span></a></li>
+                <li>@Html.ActionLink("Moje Karte", "PrikaziKarte", "Kupac") </li>
+                <li><a href="~/Pocetna/Index">Pocetna</a></li>
+                <li>@Html.ActionLink("Izmeni profil", "IzmeniProfil", "Pocetna") </li>
+                <li>@Html.ActionLink("Logout", "Logout", "Home") </li>
+
+            </ul>
+        </div>
+
+    </div>
+</nav>
+@if (ViewBag.Error != null)
+{
+    <div class="alert alert-danger" role="alert">
+        @ViewBag.Error
+    </div>
+}
+
+<br />
+
+
+<div class="container">
+
+
+
+    <form action="/Kupac/Komentarisi" method="post">
+
+
+        <div class="form-group">
+            <label for="comment">Komentar:</label>
+            <textarea class="form-control" rows="5" name="komentar" id="comment"></textarea>
+
+            <input type="hidden" name="naziv" value="@ViewBag.naziv" />
+
+
+
+            <label for="oc">Ocena:</label><br />
+            <input list="encodings" id="oc" name="ocena" class="col-sm-6 custom-select custom-select-sm">
+            <datalist id="encodings">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </datalist>
+            <input type="hidden" name="naziv" value="@ViewBag.naziv" />
+
+        </div>
+        <br />
+
+
+
+        <input type="submit" class="btn btn-primary" role="button" value="Komentarisi i oceni">
+
+    </form>
+
+
+
+</div>
+
+
+<br />
+
+

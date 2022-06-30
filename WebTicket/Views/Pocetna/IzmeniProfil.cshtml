@@ -1,0 +1,128 @@
+﻿@using WebTicket.Models;
+@model Korisnik
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+
+        <!-- Brand/logo -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#example-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Ticketer</a>
+        </div>
+
+        <!-- Collapsible Navbar -->
+        <div class="collapse navbar-collapse" id="example-1">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Izmeni profil<span class="sr-only">(current)</span></a></li>
+
+                @if (Session["admin"] != null)
+                {
+                    <li><a href="~/Pocetna/Index">Pocetna</a></li>
+                    <li><a href="~/Admin/DodajProdavca">Dodaj prodavca</a></li>
+
+                    <li>@Html.ActionLink("Svi korisnici", "PrikaziKorisnike", "Admin") </li>
+                    <li>@Html.ActionLink("Sve karte", "PrikaziKarte", "Admin") </li>
+                    <li>@Html.ActionLink("Logout", "Logout", "Home") </li>
+
+                }
+                else if (Session["kupac"] != null)
+                {
+                    <li><a href="~/Pocetna/Index">Pocetna</a></li>
+
+                    <li>@Html.ActionLink("Moje Karte", "PrikaziKarte", "Kupac") </li>
+                    <li>@Html.ActionLink("Logout", "Logout", "Home") </li>
+
+
+                }
+                else if (Session["prodavac"] != null)
+                {
+                    <li><a href="~/Pocetna/Index">Pocetna</a></li>
+
+                    <li>@Html.ActionLink("Sve rezervisane karte", "PrikaziKarte", "Prodavac") </li>
+                    <li><a href="~/Prodavac/DodajManifestaciju">Dodaj Manifestaciju</a></li>
+
+                    <li>@Html.ActionLink("Logout", "Logout", "Home") </li>
+                }
+
+            </ul>
+        </div>
+
+    </div>
+</nav>
+@if (ViewBag.Succ != null)
+{
+    <div class="alert alert-success" role="alert">
+        @ViewBag.Succ
+    </div>
+}
+
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+
+
+
+
+
+
+
+<!------ Include the above in your HEAD tag ---------->
+<div class="container" style="padding-top: 60px;">
+    <h1 class="page-header">Izmeni profil</h1>
+    <div class="row">
+        <!-- left column -->
+        <!-- edit form column -->
+        <div class="col-md-8 col-sm-6 col-xs-12 personal-info">
+       
+         
+            <form class="form-horizontal" role="form" method="post" action="~/Pocetna/IzmeniProfil">
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Korisnicko ime:</label>
+                    <div class="col-lg-8">
+                        <input class="form-control" name="Username" value="@Model.Username" readonly="readonly" required type="text">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Password</label>
+                    <div class="col-lg-8">
+                        <input class="form-control" value="@Model.Lozinka" required type="password" name="Password">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Ime:</label>
+                    <div class="col-lg-8">
+                        <input class="form-control" value="@Model.Ime" required type="text" name="Ime">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Prezime:</label>
+                    <div class="col-lg-8">
+                        <input class="form-control" value="@Model.Prezime" required type="text" name="Prezime">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Datum rodjenja:</label>
+                    <div class="col-md-8">
+                        <input class="form-control" value="@Model.Datum" required type="date" name="Datum">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-3 control-label"></label>
+                    <div class="col-md-8">
+                        <input type="hidden" name="StariNaziv" value="@Model.Username" />
+                        <input class="btn btn-primary" value="Sacuvaj izmene" type="submit">
+                        <span></span>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

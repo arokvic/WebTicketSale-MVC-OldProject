@@ -1,0 +1,172 @@
+﻿@using WebTicket.Models;
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+
+        <!-- Brand/logo -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#example-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Ticketer</a>
+        </div>
+
+        <!-- Collapsible Navbar -->
+        <div class="collapse navbar-collapse" id="example-1">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Moje karte<span class="sr-only">(current)</span></a></li>
+
+                @if (Session["admin"] != null)
+                {
+                    <li><a href="~/Pocetna/Index">Pocetna</a></li>
+                    <li><a href="~/Admin/DodajProdavca">Dodaj prodavca</a></li>
+                    <li>@Html.ActionLink("Izmeni profil", "IzmeniProfil", "Pocetna") </li>
+                    <li>@Html.ActionLink("Svi korisnici", "PrikaziKorisnike", "Admin") </li>
+
+                    <li>@Html.ActionLink("Logout", "Logout", "Home") </li>
+
+                }
+                else if (Session["kupac"] != null)
+                {
+                    <li><a href="~/Pocetna/Index">Pocetna</a></li>
+                    <li>@Html.ActionLink("Izmeni profil", "IzmeniProfil", "Pocetna") </li>
+                    <li>@Html.ActionLink("Logout", "Logout", "Home") </li>
+
+
+                }
+                else if (Session["prodavac"] != null)
+                {
+                    <li><a href="~/Pocetna/Index">Pocetna</a></li>
+                    <li>@Html.ActionLink("Izmeni profil", "IzmeniProfil", "Pocetna") </li>
+                    <li><a href="~/Prodavac/DodajManifestaciju">Dodaj Manifestaciju</a></li>
+
+                    <li>@Html.ActionLink("Logout", "Logout", "Home") </li>
+                }
+
+            </ul>
+        </div>
+
+    </div>
+</nav>
+@if (ViewBag.Error != null)
+{
+    <div class="alert alert-danger" role="alert">
+        @ViewBag.Error
+    </div>
+}
+@if (ViewBag.Succ != null)
+{
+    <div class="alert alert-success" role="alert">
+        @ViewBag.Succ
+    </div>
+}
+<br />
+
+
+@if (Session["kupac"] != null)
+{
+    <div class="form-group" id="inner" style=vertical-align: middle;>
+        <form action="/Kupac/Search">
+            <label>"Pretrazi po nazivu manifestacije"</label>
+            <input type="text" name="srr" class="form-control-plaintext" />
+            <input type="submit" value="Pretrazi" />
+        </form>
+        <br />
+
+
+        <form action="/Kupac/SearchDatum">
+            <label>Pretrazi po datumu</label>
+            <input type="date" name="srr" class="form-control-plaintext" placeholder="od" />
+            <input type="date" name="src" class="form-control-plaintext" placeholder="do" />
+            <input type="submit" value="Pretrazi" />
+        </form>
+        <br />
+
+        <form action="/Kupac/SearchCena">
+            <label>Pretrazi po ceni</label>
+            <input type="number" name="srr" class="form-control-plaintext" placeholder="od" />
+            <input type="number" name="src" class="form-control-plaintext" placeholder="do" />
+            <input type="submit" value="Pretrazi" />
+        </form>
+        <br />
+
+        <div>
+            <form action="/Kupac/Sort">
+                <input list="s" name="src" required placeholder="Sortiraj po" />
+                <datalist id="s" class="col-sm-6 custom-select custom-select-sm">
+                    <option value="Nazivu manifestacije"></option>
+                    <option value="Datumu"></option>
+                    <option value="Ceni"></option>
+                </datalist>
+                <input list="ss" name="srr" required placeholder="Redosled" />
+                <datalist id="ss" class="col-sm-6 custom-select custom-select-sm">
+                    <option value="Opadajuci"></option>
+                    <option value="Rastuci"></option>
+                </datalist>
+                <input type="submit" value="Pretrazi" />
+            </form>
+        </div>
+        <br />
+
+        <form action="/Kupac/Filtriraj">
+            <input list="filt" name="flt" required placeholder="Filtriraj po" />
+            <datalist id="filt" class="col-sm-6 custom-select custom-select-sm">
+                <option value="prikazi FanPit karte"></option>
+                <option value="prikazi Regular karte"></option>
+                <option value="prikazi VIP karte"></option>
+                <option value="prikazi rezervisane karte"></option>
+                <option value="prikazi otkazane karte"></option>
+            </datalist>
+            <input type="submit" value="Filtriraj" />
+        </form>
+        <br />
+
+
+
+    </div>
+
+}
+
+
+<div class="container">
+    @foreach (var k in ViewBag.Karte)
+    {
+
+        if (k.IsDeleted != true && (k.Status == StatusKarte.Rezervisana || Session["admin"] != null))
+        {
+
+
+            <div class="row">
+                <div class="col-md-12 ">
+                    <div class="thumbnail">
+
+                        <div class="caption">
+                            <h2>@k.NazivManifestacije </h2>
+                            <p>Id : @k.IdKarte</p>
+                            <p>Datum :  @k.DatumIVreme</p>
+                            <p>Status : @k.Status</p>
+                            <p>Cena : @k.Cena</p>
+                            <p>Tip : @k.Tip</p>
+                            @if (Session["kupac"] != null)
+                            {
+                                <form action="/Kupac/OtkaziKartu">
+                                    <input type="hidden" name="id" value="@k.IdKarte" />
+                                    <input type="hidden" name="nazman" value="@k.NazivManifestacije" />
+                                    <input type="submit" class="btn btn-primary" role="button" value="Otkazi kartu">
+                                </form>
+                            }
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+
+
+
+
+    }
+</div>

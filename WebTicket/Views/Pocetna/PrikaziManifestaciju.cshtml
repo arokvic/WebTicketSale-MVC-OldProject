@@ -1,0 +1,249 @@
+﻿@using WebTicket.Models;
+@model Manifestacija
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+
+        <!-- Brand/logo -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#example-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Ticketer</a>
+        </div>
+
+        <!-- Collapsible Navbar -->
+        <div class="collapse navbar-collapse" id="example-1">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Prikaz manifestacije<span class="sr-only">(current)</span></a></li>
+                @{
+                    if (Session["admin"] == null && Session["kupac"] == null && Session["prodavac"] == null)
+                    {
+                        <li><a href="~/Pocetna/Index">Pocetna</a></li>
+                        <li><a href="~/Home/Login">Login</a></li>
+                        <li><a href="~/Home/Register">Register</a></li>
+                    }
+                    else if (Session["admin"] != null)
+                    {
+                        <li><a href="~/Pocetna/Index">Pocetna</a></li>
+                        <li><a href="~/Admin/DodajProdavca">Dodaj prodavca</a></li>
+                        <li>@Html.ActionLink("Izmeni profil", "IzmeniProfil", "Pocetna") </li>
+                        <li>@Html.ActionLink("Svi korisnici", "PrikaziKorisnike", "Admin") </li>
+                        <li>@Html.ActionLink("Sve karte", "PrikaziKarte", "Admin") </li>
+                        <li>@Html.ActionLink("Logout", "Logout", "Home") </li>
+
+                    }
+                    else if (Session["kupac"] != null)
+                    {
+                        <li><a href="~/Pocetna/Index">Pocetna</a></li>
+                        <li>@Html.ActionLink("Izmeni profil", "IzmeniProfil", "Pocetna") </li>
+                        <li>@Html.ActionLink("Logout", "Logout", "Home") </li>
+                        <li>@Html.ActionLink("Moje Karte", "PrikaziKarte", "Kupac") </li>
+
+                    }
+                    else if (Session["prodavac"] != null)
+                    {
+                        <li><a href="~/Pocetna/Index">Pocetna</a></li>
+                        <li>@Html.ActionLink("Izmeni profil", "IzmeniProfil", "Pocetna") </li>
+                        <li><a href="~/Prodavac/DodajManifestaciju">Dodaj Manifestaciju</a></li>
+                        <li>@Html.ActionLink("Sve rezervisane karte", "PrikaziKarte", "Prodavac") </li>
+                        <li>@Html.ActionLink("Logout", "Logout", "Home") </li>
+                    }
+                }
+            </ul>
+        </div>
+
+    </div>
+</nav>
+@if (ViewBag.Error != null)
+{
+    <div class="alert alert-danger" role="alert">
+        @ViewBag.Error
+    </div>
+}
+@if (ViewBag.Succ != null)
+{
+    <div class="alert alert-success" role="alert">
+        @ViewBag.Succ
+    </div>
+}
+
+
+
+<br />
+<div class="container bootstrap snippets bootdey">
+    <div class="row">
+        <div class="col-sm-6 push-bit">
+            <a href="#" class="gallery-link"><img src="~/Images/@ViewBag.m.Poster" alt="" class="img-responsive push-bit" /></a>
+        </div>
+        <div class="col-sm-6 push-bit">
+            <div class="clearfix">
+                <div class="pull-right">
+                    <span class="h6"><strong>Cena regularne karte : @ViewBag.m.CenaRegular rsd</strong></span><br />
+                    <span class="h6"><strong>Cena parter karte : @ViewBag.m.CenaParter rsd</strong></span><br />
+                    <span class="h6"><strong>Cena VIP karte : @ViewBag.m.CenaVIP rsd</strong></span>
+                </div>
+                <span class="h4">
+                    <strong class="text-info h1">@ViewBag.m.Naziv</strong><br />
+                    <small>Preostali broj karata : @ViewBag.m.BrKarata</small>
+
+                </span>
+            </div>
+
+            <hr />
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 ">Tip Manifestacije : @ViewBag.m.Tip</div>
+                    <div class="col-md-8">Datum i vreme : @ViewBag.m.DatumIVreme</div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-md-4">
+                        Status : @if (ViewBag.m.Aktivno == false)
+                        {
+                            <p>Neaktivno</p>
+                        }
+                        else
+                        {
+                            <p>Aktivno</p>
+                        }
+                    </div>
+                    <div class="col-md-8">Mesto odrzavanja :  @ViewBag.m.Mesto.Mesto, @ViewBag.m.Mesto.Ulica @ViewBag.m.Mesto.Broj</div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-md-4">Ukupan broj mesta : @ViewBag.m.BrMesta</div><br />
+                    <div class="col-md-4">Broj regular mesta : @ViewBag.m.BrMestaRegular</div><br />
+                    <div class="col-md-4">Broj Fanpit mesta : @ViewBag.m.BrMestaParter</div><br />
+                    <div class="col-md-4">Broj VIP mesta : @ViewBag.m.BrMestaVIP</div>
+
+                    <div class="col-md-8">
+                        
+                            Ocena : @if (ViewBag.m.Ocena == 0)
+                            {
+                                <p>Nema ocena </p>
+                            }
+                            else
+                            {
+                                <p> @ViewBag.m.Ocena</p>
+                            }
+                       
+
+                        @if (Session["kupac"] != null)
+                        {
+                            <form class="form-horizontal" role="form" action="~/Kupac/Komentarisi">
+                                <input type="hidden" name="naziv" value="@ViewBag.m.Naziv" />
+                                <button type="submit" class="btn btn-info">Komentarisi</button>
+                            </form>
+                        }
+
+                    </div>
+                </div>
+
+
+
+            </div>
+
+
+
+
+
+            <br />
+
+            @if ( Session["kupac"] != null)
+            {
+                <form class="form-group" role="form" action="~/Kupac/Potvrda" method="post">
+                    <input list="tip" name="TipKarte" placeholder="Izaberite tip karte" />
+                    <datalist id="tip">
+                        <option value="Regular" ></option>
+                        <option value="Fanpit"></option>
+                        <option value="VIP"></option>
+                    </datalist>
+                    <input type="hidden" name="CenaReg" value="@ViewBag.m.CenaRegular" />
+                    <input type="hidden" name="naz" value="@ViewBag.m.Naziv" />
+                    <input type="number" id="broj" placeholder="Broj Karata" name="Broj" class="form-control">
+                    <button type="submit" class="btn btn-info">Rezervisi</button>
+
+
+
+                </form>
+            }
+
+            <br />
+
+
+
+
+
+            <div class="container">
+                <div class="row">
+                    <h2>Komentari </h2>
+                </div>
+                <div class="row" id="addcomment" style="display: none;">
+                    <form>
+                        <textarea class="form-control" placeholder="Comment content..."></textarea><br />
+                        <button class="btn btn-primary">Send</button>
+                    </form>
+                </div>
+                <hr>
+
+                @foreach (var k in ViewBag.m.Komentari)
+                {
+                    if ((Session["admin"] != null || Session["prodavac"] != null || (k.Odobren == true)) && k.IsDeleted == false)
+                    {
+
+                        <div class="row comment">
+                            <div class="head">
+                                <small><strong class='user'>@k.NazivKorisnika</strong></small>
+                            </div>
+                            <p>@k.Tekst</p>
+
+                            @if (Session["prodavac"] != null && k.Odobren == false)
+                            {
+                                <form class="form-horizontal" role="form" action="~/Prodavac/OdobriKomentar" method="post">
+                                    <input type="hidden" name="kom" value="@k.Tekst" />
+                                    <input type="hidden" name="naziv" value="@ViewBag.m.Naziv" />
+                                    <button type="submit" class="btn btn-info">Odobri Komentar</button>
+                                </form>
+                            }
+                            @if (Session["admin"] != null)
+                            {
+                                <form class="form-horizontal" role="form" action="~/Admin/ObrisiKomentar" method="post">
+                                    <input type="hidden" name="kom" value="@k.Tekst" />
+                                    <input type="hidden" name="naziv" value="@ViewBag.m.Naziv" />
+                                    <button type="submit" class="btn btn-info">Obrisi komentar</button>
+                                </form>
+                            }
+
+
+                        </div>
+                    }
+                }
+
+
+
+
+
+                <hr />
+
+
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+

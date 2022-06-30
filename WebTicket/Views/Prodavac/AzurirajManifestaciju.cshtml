@@ -1,0 +1,139 @@
+﻿<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+
+        <!-- Brand/logo -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#example-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Ticketer</a>
+        </div>
+
+        <!-- Collapsible Navbar -->
+        <div class="collapse navbar-collapse" id="example-1">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Azuriranje manifestacije<span class="sr-only">(current)</span></a></li>
+                <li><a href="~/Pocetna/Index">Pocetna</a></li>
+                <li>@Html.ActionLink("Izmeni profil", "IzmeniProfil", "Pocetna") </li>
+                <li><a href="~/Prodavac/DodajManifestaciju">Dodaj Manifestaciju</a></li>
+                <li>@Html.ActionLink("Sve rezervisane karte", "PrikaziKarte", "Prodavac") </li>
+                <li>@Html.ActionLink("Logout", "Logout", "Home") </li>
+
+
+            </ul>
+        </div>
+
+    </div>
+</nav>
+@if (ViewBag.Error != null)
+{
+    <div class="alert alert-danger" role="alert">
+        @ViewBag.Error
+    </div>
+}
+
+    <div class="container">
+        <form class="form-horizontal" role="form" action="~/Prodavac/AzurirajManifestaciju" method="post">
+            <h2>Azuriraj manifestaciju</h2>
+            <div class="form-group">
+                <label for="username" class="col-sm-3 control-label">Naziv manifestacije</label>
+                <div class="col-sm-9">
+                    <input type="text" id="naziv" value="@ViewBag.m.Naziv" name="Naziv" class="form-control" readonly="readonly" required>
+                    <input type="hidden" id="naziv" value="@ViewBag.m.Naziv" name="StariNaziv" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="tip" class="col-sm-3 control-label">Tip Manifestacije</label>
+                <input list="tip" name="Tip" placeholder="@ViewBag.m.Tip" value="@ViewBag.m.Tip" required />
+                <datalist id="tip">
+                    <option value="Utakmica"></option>
+                    <option value="Festival"></option>
+                    <option value="Koncert"></option>
+                    <option value="Izlozba"></option>
+                    <option value="Zurka"></option>
+                </datalist>
+            </div>
+            <div class="form-group">
+                <label for="broj" class="col-sm-3 control-label">Broj regularnih mesta</label>
+                <div class="col-sm-9">
+                    <input type="number" id="brojMesta" value="@ViewBag.m.BrMestaRegular" placeholder="Broj mesta" name="BrojMestaRegular" required class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="broj" class="col-sm-3 control-label">Broj FanPit mesta</label>
+                <div class="col-sm-9">
+                    <input type="number" id="brojMesta" value="@ViewBag.m.BrMestaParter" placeholder="Broj mesta" name="BrojMestaParter" required class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="broj" class="col-sm-3 control-label">Broj VIP mesta</label>
+                <div class="col-sm-9">
+                    <input type="number" id="brojMesta" value="@ViewBag.m.BrMestaVIP" placeholder="Broj mesta" name="BrojMestaVip" required class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="last name" class="col-sm-3 control-label">Cena karte</label>
+                <div class="col-sm-9">
+                    <input type="number" id="cena" value="@ViewBag.m.CenaRegular" name="Cena" class="form-control" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="datum" class="col-sm-3 control-label">Datum odrzavanja</label>
+                <div class="col-sm-9">
+                    <input type="date" id="Datum" name="Datum" value="@ViewBag.Datum" class="form-control" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="last name" class="col-sm-3 control-label">Ulica</label>
+                <div class="col-sm-9">
+                    <input type="text" id="ulica" value="@ViewBag.m.Mesto.Ulica" name="Ulica" class="form-control" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="last name" class="col-sm-3 control-label">Broj</label>
+                <div class="col-sm-9">
+                    <input type="number" id="broj" value="@ViewBag.m.Mesto.Broj" name="Broj" class="form-control" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="last name" class="col-sm-3 control-label">Grad</label>
+                <div class="col-sm-9">
+                    <input type="text" id="grad" value="@ViewBag.m.Mesto.Mesto" name="Grad" class="form-control" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="last name" class="col-sm-3 control-label">Postanski broj</label>
+                <div class="col-sm-9">
+                    <input type="number" id="postanski" value="@ViewBag.m.Mesto.PostanskiBroj" name="Postanski" class="form-control" required>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <div class="col-sm-9 col-sm-offset-3">
+                    <button type="submit" class="btn btn-primary btn-block">Azuriraj Manifestaciju</button>
+                </div>
+            </div>
+        </form> <!-- /form -->
+
+        <div class="form-group">
+            @using (Html.BeginForm("DodajSliku", "Prodavac", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <label for="file">Upload Image:</label>
+                <input type="file" name="file" id="file" /><br><br>
+                <input type="submit" value="Upload Image" />
+                <input type="hidden" name="Naziv" value="@ViewBag.m.Naziv" />
+                <br><br>
+                @ViewBag.Message
+
+                <img src="~/Images/@ViewBag.m.Poster" />
+            }
+        </div>
+
+
+
+
+    </div> <!-- ./container -->

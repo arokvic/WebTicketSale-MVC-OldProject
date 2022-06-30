@@ -1,0 +1,470 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfKorisnik xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Korisnik>
+    <Username>kupp</Username>
+    <Lozinka>kupp</Lozinka>
+    <Ime>sssssssssssssss</Ime>
+    <Prezime>aaaaaaaaaaaaaa</Prezime>
+    <Datum>3224-02-23</Datum>
+    <Uloga>Administrator</Uloga>
+    <Karte />
+    <Manifestacije />
+    <Bodovi>0</Bodovi>
+    <IsDeleted>false</IsDeleted>
+  </Korisnik>
+  <Korisnik>
+    <Username>kuper</Username>
+    <Lozinka>kuper</Lozinka>
+    <Ime>323</Ime>
+    <Prezime>323</Prezime>
+    <Datum>0324-03-31</Datum>
+    <Uloga>Kupac</Uloga>
+    <Karte>
+      <Karta>
+        <IdKarte>f5382a06a3</IdKarte>
+        <NazivManifestacije>srbija turska</NazivManifestacije>
+        <DatumIVreme>12.12.2012</DatumIVreme>
+        <Cena>6000</Cena>
+        <NazivKupca>kuper</NazivKupca>
+        <Status>Rezervisana</Status>
+        <Tip>VIP</Tip>
+        <IsDeleted>true</IsDeleted>
+      </Karta>
+    </Karte>
+    <Manifestacije />
+    <Bodovi>798</Bodovi>
+    <IsDeleted>true</IsDeleted>
+  </Korisnik>
+  <Korisnik>
+    <Username>kupas</Username>
+    <Lozinka>kupas</Lozinka>
+    <Ime>dasda</Ime>
+    <Prezime>dasd</Prezime>
+    <Datum>0333-02-23</Datum>
+    <Uloga>Kupac</Uloga>
+    <Karte>
+      <Karta>
+        <IdKarte>08bd6e1ee1</IdKarte>
+        <NazivManifestacije>dasdaadasadad</NazivManifestacije>
+        <DatumIVreme>2/22/0222 12:00:00 AM</DatumIVreme>
+        <Cena>128</Cena>
+        <NazivKupca>kupas</NazivKupca>
+        <Status>Rezervisana</Status>
+        <Tip>VIP</Tip>
+        <IsDeleted>false</IsDeleted>
+      </Karta>
+      <Karta>
+        <IdKarte>9ac13e324c</IdKarte>
+        <NazivManifestacije>dasdaadasadad</NazivManifestacije>
+        <DatumIVreme>2/22/0222 12:00:00 AM</DatumIVreme>
+        <Cena>128</Cena>
+        <NazivKupca>kupas</NazivKupca>
+        <Status>Rezervisana</Status>
+        <Tip>VIP</Tip>
+        <IsDeleted>false</IsDeleted>
+      </Karta>
+    </Karte>
+    <Manifestacije />
+    <Bodovi>34</Bodovi>
+    <IsDeleted>true</IsDeleted>
+  </Korisnik>
+  <Korisnik>
+    <Username>kupus</Username>
+    <Lozinka>kupus</Lozinka>
+    <Ime>das</Ime>
+    <Prezime>dsada</Prezime>
+    <Datum>3232-02-23</Datum>
+    <Uloga>Kupac</Uloga>
+    <Karte>
+      <Karta>
+        <IdKarte>df60fee0f7</IdKarte>
+        <NazivManifestacije>eeeee</NazivManifestacije>
+        <DatumIVreme>3/31/0333 12:00:00 AM</DatumIVreme>
+        <Cena>3</Cena>
+        <NazivKupca>kupus</NazivKupca>
+        <Status>Rezervisana</Status>
+        <Tip>Regular</Tip>
+        <IsDeleted>true</IsDeleted>
+      </Karta>
+      <Karta>
+        <IdKarte>57d9521f81</IdKarte>
+        <NazivManifestacije>eeeee</NazivManifestacije>
+        <DatumIVreme>3/31/0333 12:00:00 AM</DatumIVreme>
+        <Cena>3</Cena>
+        <NazivKupca>kupus</NazivKupca>
+        <Status>Rezervisana</Status>
+        <Tip>Regular</Tip>
+        <IsDeleted>true</IsDeleted>
+      </Karta>
+      <Karta>
+        <IdKarte>b86ad25966</IdKarte>
+        <NazivManifestacije>ssssssssss</NazivManifestacije>
+        <DatumIVreme>3/31/0032 12:00:00 AM</DatumIVreme>
+        <Cena>323</Cena>
+        <NazivKupca>kupus</NazivKupca>
+        <Status>Rezervisana</Status>
+        <Tip>Regular</Tip>
+        <IsDeleted>true</IsDeleted>
+      </Karta>
+      <Karta>
+        <IdKarte>f799fb640f</IdKarte>
+        <NazivManifestacije>ssssssssss</NazivManifestacije>
+        <DatumIVreme>3/31/0032 12:00:00 AM</DatumIVreme>
+        <Cena>323</Cena>
+        <NazivKupca>kupus</NazivKupca>
+        <Status>Rezervisana</Status>
+        <Tip>Regular</Tip>
+        <IsDeleted>true</IsDeleted>
+      </Karta>
+      <Karta>
+        <IdKarte>b2454e6850</IdKarte>
+        <NazivManifestacije>ssssssssss</NazivManifestacije>
+        <DatumIVreme>3/31/0032 12:00:00 AM</DatumIVreme>
+        <Cena>323</Cena>
+        <NazivKupca>kupus</NazivKupca>
+        <Status>Rezervisana</Status>
+        <Tip>Regular</Tip>
+        <IsDeleted>true</IsDeleted>
+      </Karta>
+      <Karta>
+        <IdKarte>4b01fa4427</IdKarte>
+        <NazivManifestacije>wwwwww</NazivManifestacije>
+        <DatumIVreme>2/22/2222 12:00:00 AM</DatumIVreme>
+        <Cena>4</Cena>
+        <NazivKupca>kupus</NazivKupca>
+        <Status>Rezervisana</Status>
+        <Tip>Fanpit</Tip>
+        <IsDeleted>true</IsDeleted>
+      </Karta>
+      <Karta>
+        <IdKarte>454c536c96</IdKarte>
+        <NazivManifestacije>wwwwww</NazivManifestacije>
+        <DatumIVreme>2/22/2222 12:00:00 AM</DatumIVreme>
+        <Cena>4</Cena>
+        <NazivKupca>kupus</NazivKupca>
+        <Status>Rezervisana</Status>
+        <Tip>Fanpit</Tip>
+        <IsDeleted>true</IsDeleted>
+      </Karta>
+      <Karta>
+        <IdKarte>fb66fb4160</IdKarte>
+        <NazivManifestacije>aaaaaa</NazivManifestacije>
+        <DatumIVreme>3/31/3333 12:00:00 AM</DatumIVreme>
+        <Cena>3</Cena>
+        <NazivKupca>kupus</NazivKupca>
+        <Status>Rezervisana</Status>
+        <Tip>Regular</Tip>
+        <IsDeleted>true</IsDeleted>
+      </Karta>
+      <Karta>
+        <IdKarte>e79acab574</IdKarte>
+        <NazivManifestacije>aaaaaa</NazivManifestacije>
+        <DatumIVreme>3/31/3333 12:00:00 AM</DatumIVreme>
+        <Cena>3</Cena>
+        <NazivKupca>kupus</NazivKupca>
+        <Status>Rezervisana</Status>
+        <Tip>Regular</Tip>
+        <IsDeleted>true</IsDeleted>
+      </Karta>
+      <Karta>
+        <IdKarte>182f009d0e</IdKarte>
+        <NazivManifestacije>ppp</NazivManifestacije>
+        <DatumIVreme>3/3/0033 12:00:00 AM</DatumIVreme>
+        <Cena>33</Cena>
+        <NazivKupca>kupus</NazivKupca>
+        <Status>Rezervisana</Status>
+        <Tip>Regular</Tip>
+        <IsDeleted>true</IsDeleted>
+      </Karta>
+      <Karta>
+        <IdKarte>b5d304dcc4</IdKarte>
+        <NazivManifestacije>ppp</NazivManifestacije>
+        <DatumIVreme>3/3/0033 12:00:00 AM</DatumIVreme>
+        <Cena>33</Cena>
+        <NazivKupca>kupus</NazivKupca>
+        <Status>Rezervisana</Status>
+        <Tip>Regular</Tip>
+        <IsDeleted>true</IsDeleted>
+      </Karta>
+      <Karta>
+        <IdKarte>6ee820bc81</IdKarte>
+        <NazivManifestacije>srbija turska</NazivManifestacije>
+        <DatumIVreme>12.12.2012</DatumIVreme>
+        <Cena>1500</Cena>
+        <NazivKupca>kupus</NazivKupca>
+        <Status>Rezervisana</Status>
+        <Tip>Regular</Tip>
+        <IsDeleted>true</IsDeleted>
+      </Karta>
+    </Karte>
+    <Manifestacije />
+    <Bodovi>333</Bodovi>
+    <IsDeleted>true</IsDeleted>
+  </Korisnik>
+  <Korisnik>
+    <Username>kupp1</Username>
+    <Lozinka>kupp</Lozinka>
+    <Ime>adsa</Ime>
+    <Prezime>sdadas</Prezime>
+    <Datum>3224-02-23</Datum>
+    <Uloga>Administrator</Uloga>
+    <Karte />
+    <Manifestacije />
+    <Bodovi>0</Bodovi>
+    <IsDeleted>false</IsDeleted>
+  </Korisnik>
+  <Korisnik>
+    <Username>kupp2</Username>
+    <Lozinka>kupp</Lozinka>
+    <Ime>sssssss</Ime>
+    <Prezime>sdadas</Prezime>
+    <Datum>3224-02-23</Datum>
+    <Uloga>Administrator</Uloga>
+    <Karte />
+    <Manifestacije />
+    <Bodovi>0</Bodovi>
+    <IsDeleted>false</IsDeleted>
+  </Korisnik>
+  <Korisnik>
+    <Username>kupp3</Username>
+    <Lozinka>kupp</Lozinka>
+    <Ime>adsa</Ime>
+    <Prezime>sdadas</Prezime>
+    <Datum>3224-02-23</Datum>
+    <Uloga>Administrator</Uloga>
+    <Karte />
+    <Manifestacije />
+    <Bodovi>0</Bodovi>
+    <IsDeleted>false</IsDeleted>
+  </Korisnik>
+  <Korisnik>
+    <Username>kupp4</Username>
+    <Lozinka>kupp</Lozinka>
+    <Ime>adsa</Ime>
+    <Prezime>sdadas</Prezime>
+    <Datum>3224-02-23</Datum>
+    <Uloga>Administrator</Uloga>
+    <Karte />
+    <Manifestacije />
+    <Bodovi>0</Bodovi>
+    <IsDeleted>false</IsDeleted>
+  </Korisnik>
+  <Korisnik>
+    <Username>kupp6</Username>
+    <Lozinka>kupp</Lozinka>
+    <Ime>adsa</Ime>
+    <Prezime>sdadas</Prezime>
+    <Datum>3224-02-23</Datum>
+    <Uloga>Administrator</Uloga>
+    <Karte />
+    <Manifestacije />
+    <Bodovi>0</Bodovi>
+    <IsDeleted>false</IsDeleted>
+  </Korisnik>
+  <Korisnik>
+    <Username>kp1</Username>
+    <Lozinka>kp1</Lozinka>
+    <Ime>kk</Ime>
+    <Prezime>kk</Prezime>
+    <Datum>2222-02-22</Datum>
+    <Uloga>Kupac</Uloga>
+    <Karte>
+      <Karta>
+        <IdKarte>63c8f146fe</IdKarte>
+        <NazivManifestacije>Aca Lukas Koncert</NazivManifestacije>
+        <DatumIVreme>9/13/2020 12:00:00 AM</DatumIVreme>
+        <Cena>2300</Cena>
+        <NazivKupca>kp1</NazivKupca>
+        <Status>Rezervisana</Status>
+        <Tip>Regular</Tip>
+        <IsDeleted>true</IsDeleted>
+      </Karta>
+      <Karta>
+        <IdKarte>da9355ddd3</IdKarte>
+        <NazivManifestacije>Aca Lukas Koncert</NazivManifestacije>
+        <DatumIVreme>9/13/2020 12:00:00 AM</DatumIVreme>
+        <Cena>2300</Cena>
+        <NazivKupca>kp1</NazivKupca>
+        <Status>Rezervisana</Status>
+        <Tip>Regular</Tip>
+        <IsDeleted>true</IsDeleted>
+      </Karta>
+      <Karta>
+        <IdKarte>1049ab3121</IdKarte>
+        <NazivManifestacije>Aca Lukas Koncert</NazivManifestacije>
+        <DatumIVreme>9/13/2020 12:00:00 AM</DatumIVreme>
+        <Cena>2300</Cena>
+        <NazivKupca>kp1</NazivKupca>
+        <Status>Rezervisana</Status>
+        <Tip>Regular</Tip>
+        <IsDeleted>true</IsDeleted>
+      </Karta>
+      <Karta>
+        <IdKarte>641f71fd64</IdKarte>
+        <NazivManifestacije>Egzit</NazivManifestacije>
+        <DatumIVreme>2/23/2020 12:00:00 AM</DatumIVreme>
+        <Cena>7000</Cena>
+        <NazivKupca>kp1</NazivKupca>
+        <Status>Rezervisana</Status>
+        <Tip>Regular</Tip>
+        <IsDeleted>true</IsDeleted>
+      </Karta>
+      <Karta>
+        <IdKarte>788079759c</IdKarte>
+        <NazivManifestacije>srbija turska</NazivManifestacije>
+        <DatumIVreme>11.11.1111</DatumIVreme>
+        <Cena>1500</Cena>
+        <NazivKupca>kp1</NazivKupca>
+        <Status>Rezervisana</Status>
+        <Tip>Regular</Tip>
+        <IsDeleted>true</IsDeleted>
+      </Karta>
+      <Karta>
+        <IdKarte>740fc23ded</IdKarte>
+        <NazivManifestacije>srbija turska</NazivManifestacije>
+        <DatumIVreme>11.11.1111</DatumIVreme>
+        <Cena>1500</Cena>
+        <NazivKupca>kp1</NazivKupca>
+        <Status>Rezervisana</Status>
+        <Tip>Regular</Tip>
+        <IsDeleted>true</IsDeleted>
+      </Karta>
+      <Karta>
+        <IdKarte>6d160fc024</IdKarte>
+        <NazivManifestacije>ooooo</NazivManifestacije>
+        <DatumIVreme>23.02.3233</DatumIVreme>
+        <Cena>3</Cena>
+        <NazivKupca>kp1</NazivKupca>
+        <Status>Rezervisana</Status>
+        <Tip>Regular</Tip>
+        <IsDeleted>true</IsDeleted>
+      </Karta>
+    </Karte>
+    <Manifestacije />
+    <Bodovi>2244</Bodovi>
+    <IsDeleted>true</IsDeleted>
+  </Korisnik>
+  <Korisnik>
+    <Username>kp2</Username>
+    <Lozinka>kp2</Lozinka>
+    <Ime>eee</Ime>
+    <Prezime>wwww</Prezime>
+    <Datum>2323-02-22</Datum>
+    <Uloga>Kupac</Uloga>
+    <Karte>
+      <Karta>
+        <IdKarte>d3783dcb0f</IdKarte>
+        <NazivManifestacije>Partizan Zvezda</NazivManifestacije>
+        <DatumIVreme>6/20/2020 12:00:00 AM</DatumIVreme>
+        <Cena>2800</Cena>
+        <NazivKupca>kp2</NazivKupca>
+        <Status>Rezervisana</Status>
+        <Tip>Fanpit</Tip>
+        <IsDeleted>true</IsDeleted>
+      </Karta>
+      <Karta>
+        <IdKarte>700fad1dac</IdKarte>
+        <NazivManifestacije>Partizan Zvezda</NazivManifestacije>
+        <DatumIVreme>6/20/2020 12:00:00 AM</DatumIVreme>
+        <Cena>2800</Cena>
+        <NazivKupca>kp2</NazivKupca>
+        <Status>Rezervisana</Status>
+        <Tip>Fanpit</Tip>
+        <IsDeleted>true</IsDeleted>
+      </Karta>
+      <Karta>
+        <IdKarte>91c6888d77</IdKarte>
+        <NazivManifestacije>Izlozba Fride Kalo</NazivManifestacije>
+        <DatumIVreme>5/5/2020 12:00:00 AM</DatumIVreme>
+        <Cena>2000</Cena>
+        <NazivKupca>kp2</NazivKupca>
+        <Status>Rezervisana</Status>
+        <Tip>Fanpit</Tip>
+        <IsDeleted>true</IsDeleted>
+      </Karta>
+      <Karta>
+        <IdKarte>84a58162f2</IdKarte>
+        <NazivManifestacije>Izlozba Fride Kalo</NazivManifestacije>
+        <DatumIVreme>5/5/2020 12:00:00 AM</DatumIVreme>
+        <Cena>2000</Cena>
+        <NazivKupca>kp2</NazivKupca>
+        <Status>Rezervisana</Status>
+        <Tip>Fanpit</Tip>
+        <IsDeleted>true</IsDeleted>
+      </Karta>
+      <Karta>
+        <IdKarte>00a5642898</IdKarte>
+        <NazivManifestacije>Izlozba Fride Kalo</NazivManifestacije>
+        <DatumIVreme>5/5/2020 12:00:00 AM</DatumIVreme>
+        <Cena>2000</Cena>
+        <NazivKupca>kp2</NazivKupca>
+        <Status>Rezervisana</Status>
+        <Tip>Fanpit</Tip>
+        <IsDeleted>true</IsDeleted>
+      </Karta>
+      <Karta>
+        <IdKarte>4ff0db025a</IdKarte>
+        <NazivManifestacije>Egzit</NazivManifestacije>
+        <DatumIVreme>31.03.3333</DatumIVreme>
+        <Cena>7000</Cena>
+        <NazivKupca>kp2</NazivKupca>
+        <Status>Rezervisana</Status>
+        <Tip>Regular</Tip>
+        <IsDeleted>false</IsDeleted>
+      </Karta>
+      <Karta>
+        <IdKarte>3fc50d7806</IdKarte>
+        <NazivManifestacije>Egzit</NazivManifestacije>
+        <DatumIVreme>31.03.3333</DatumIVreme>
+        <Cena>7000</Cena>
+        <NazivKupca>kp2</NazivKupca>
+        <Status>Rezervisana</Status>
+        <Tip>Regular</Tip>
+        <IsDeleted>false</IsDeleted>
+      </Karta>
+      <Karta>
+        <IdKarte>bde1bbd400</IdKarte>
+        <NazivManifestacije>Srbija-Rusija</NazivManifestacije>
+        <DatumIVreme>2/22/2020 12:00:00 AM</DatumIVreme>
+        <Cena>1300</Cena>
+        <NazivKupca>kp2</NazivKupca>
+        <Status>Rezervisana</Status>
+        <Tip>Regular</Tip>
+        <IsDeleted>true</IsDeleted>
+      </Karta>
+      <Karta>
+        <IdKarte>f6a85b5516</IdKarte>
+        <NazivManifestacije>Aca Lukas Koncert</NazivManifestacije>
+        <DatumIVreme>9/13/2020 12:00:00 AM</DatumIVreme>
+        <Cena>4600</Cena>
+        <NazivKupca>kp2</NazivKupca>
+        <Status>Rezervisana</Status>
+        <Tip>Fanpit</Tip>
+        <IsDeleted>false</IsDeleted>
+      </Karta>
+      <Karta>
+        <IdKarte>81b92db264</IdKarte>
+        <NazivManifestacije>Aca Lukas Koncert</NazivManifestacije>
+        <DatumIVreme>9/13/2020 12:00:00 AM</DatumIVreme>
+        <Cena>4600</Cena>
+        <NazivKupca>kp2</NazivKupca>
+        <Status>Rezervisana</Status>
+        <Tip>Fanpit</Tip>
+        <IsDeleted>false</IsDeleted>
+      </Karta>
+      <Karta>
+        <IdKarte>e5b0a3d852</IdKarte>
+        <NazivManifestacije>Aca Lukas Koncert</NazivManifestacije>
+        <DatumIVreme>9/13/2020 12:00:00 AM</DatumIVreme>
+        <Cena>4600</Cena>
+        <NazivKupca>kp2</NazivKupca>
+        <Status>Rezervisana</Status>
+        <Tip>Fanpit</Tip>
+        <IsDeleted>false</IsDeleted>
+      </Karta>
+    </Karte>
+    <Manifestacije />
+    <Bodovi>5409</Bodovi>
+    <IsDeleted>false</IsDeleted>
+  </Korisnik>
+</ArrayOfKorisnik>

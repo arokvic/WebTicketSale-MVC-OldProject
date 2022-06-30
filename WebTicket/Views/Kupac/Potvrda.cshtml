@@ -1,0 +1,57 @@
+﻿<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+
+        <!-- Brand/logo -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#example-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Ticketer</a>
+        </div>
+
+        <!-- Collapsible Navbar -->
+        <div class="collapse navbar-collapse" id="example-1">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Potvrda<span class="sr-only">(current)</span></a></li>
+                <li>@Html.ActionLink("Moje Karte", "PrikaziKarte", "Kupac") </li>
+                <li><a href="~/Pocetna/Index">Pocetna</a></li>
+                <li>@Html.ActionLink("Izmeni profil", "IzmeniProfil", "Pocetna") </li>
+                <li>@Html.ActionLink("Logout", "Logout", "Home") </li>
+
+            </ul>
+        </div>
+
+    </div>
+</nav>
+<br />
+
+
+<h3 style="align-content:center">@ViewBag.Mess</h3>
+
+<table class="center">
+    <tr>
+        <td style="text-align:center">
+            <form action="/Kupac/Rezervisi" method="post" class="form-inline push-bit text-right">
+
+                <input type="hidden" name="Naziv" value="@ViewBag.naz" />
+                <input type="hidden" name="Broj" value="@ViewBag.broj" />
+                <input type="hidden" name="TipKarte" value="@ViewBag.tip" />
+                <button type="submit" class="btn btn-info">Da</button>
+
+            </form>
+        </td>
+        <td style="text-align:center">
+            <form action="/Pocetna/PrikaziManifestaciju" method="post" class="form-inline push-bit text-right">
+                <button type="submit" class="btn btn-info">Ne</button>
+                <input type="hidden" name="Name" value="@ViewBag.naz" />
+
+            </form>
+        </td>
+    </tr>
+
+</table>
+
+

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfKorisnik xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Korisnik>
+    <Username>p1</Username>
+    <Lozinka>p1</Lozinka>
+    <Uloga>Administrator</Uloga>
+    <Karte />
+    <Manifestacije />
+    <Bodovi>0</Bodovi>
+    <IsDeleted>false</IsDeleted>
+  </Korisnik>
+  <Korisnik>
+    <Username>prod</Username>
+    <Lozinka>prod</Lozinka>
+    <Ime>asd</Ime>
+    <Prezime>sdad</Prezime>
+    <Datum>0003-02-23</Datum>
+    <Uloga>Prodavac</Uloga>
+    <Karte />
+    <Manifestacije />
+    <Bodovi>0</Bodovi>
+    <IsDeleted>true</IsDeleted>
+  </Korisnik>
+  <Korisnik>
+    <Username>pp</Username>
+    <Lozinka>pp</Lozinka>
+    <Ime>23</Ime>
+    <Prezime>asd</Prezime>
+    <Datum>0233-03-31</Datum>
+    <Uloga>Prodavac</Uloga>
+    <Karte />
+    <Manifestacije />
+    <Bodovi>0</Bodovi>
+    <IsDeleted>true</IsDeleted>
+  </Korisnik>
+  <Korisnik>
+    <Username>ppp</Username>
+    <Lozinka>ppp</Lozinka>
+    <Ime>1</Ime>
+    <Prezime>1</Prezime>
+    <Datum>1111-11-11</Datum>
+    <Uloga>Prodavac</Uloga>
+    <Karte />
+    <Manifestacije />
+    <Bodovi>0</Bodovi>
+    <IsDeleted>true</IsDeleted>
+  </Korisnik>
+  <Korisnik>
+    <Username>pppp</Username>
+    <Lozinka>pppp</Lozinka>
+    <Ime>23</Ime>
+    <Prezime>32</Prezime>
+    <Datum>0033-02-23</Datum>
+    <Uloga>Prodavac</Uloga>
+    <Karte />
+    <Manifestacije />
+    <Bodovi>0</Bodovi>
+    <IsDeleted>true</IsDeleted>
+  </Korisnik>
+  <Korisnik>
+    <Username>prodigy</Username>
+    <Lozinka>prodigy</Lozinka>
+    <Ime>aaaaaaa</Ime>
+    <Prezime>dasd</Prezime>
+    <Datum>2322-03-31</Datum>
+    <Uloga>Administrator</Uloga>
+    <Karte />
+    <Manifestacije />
+    <Bodovi>0</Bodovi>
+    <IsDeleted>false</IsDeleted>
+  </Korisnik>
+  <Korisnik>
+    <Username>pr1</Username>
+    <Lozinka>pr1</Lozinka>
+    <Ime>adasddsd</Ime>
+    <Prezime>aaaaaaaaaaaaaaaaaaaa</Prezime>
+    <Datum>2012-02-23</Datum>
+    <Uloga>Prodavac</Uloga>
+    <Karte />
+    <Manifestacije />
+    <Bodovi>0</Bodovi>
+    <IsDeleted>false</IsDeleted>
+  </Korisnik>
+  <Korisnik>
+    <Username>pr2</Username>
+    <Lozinka>pr2</Lozinka>
+    <Ime>dasdasd</Ime>
+    <Prezime>asdad</Prezime>
+    <Datum>2000-03-31</Datum>
+    <Uloga>Prodavac</Uloga>
+    <Karte />
+    <Manifestacije />
+    <Bodovi>0</Bodovi>
+    <IsDeleted>true</IsDeleted>
+  </Korisnik>
+  <Korisnik>
+    <Username>pr3</Username>
+    <Lozinka>pr3</Lozinka>
+    <Ime>dasdas</Ime>
+    <Prezime>sadsdd</Prezime>
+    <Datum>2001-02-20</Datum>
+    <Uloga>Prodavac</Uloga>
+    <Karte />
+    <Manifestacije />
+    <Bodovi>0</Bodovi>
+    <IsDeleted>true</IsDeleted>
+  </Korisnik>
+</ArrayOfKorisnik>
